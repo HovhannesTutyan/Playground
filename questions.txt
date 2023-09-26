@@ -1,0 +1,212 @@
+In the event that you pass arguments like whole numbers, strings or tuples to a function, 
+the passing is like call-by-value because you can not change the value of the immutable objects being passed to the function. 
+Whereas passing mutable objects can be considered as call by reference because when their values are changed inside the function, 
+then it will also be reflected outside the function.
+
+We call it stack memory allocation because the allocation happens in the function call stack.
+
+Any local memory assignments such as variable initializations inside the particular functions are stored temporarily on the function call stack,
+ where it is deleted once the function returns, and the call stack moves on to the next task.
+
+def func():
+     
+    # All these variables get memory 
+    # allocated on stack 
+    a = 20
+    b = []
+    c = ""
+
+
+The variables are needed outside of method or function calls or are shared within multiple functions globally are stored in Heap memory.
+
+Example:
+# This memory for 10 integers 
+# is allocated on heap. 
+a = [0]*10
+
+Call by reference                                                                           
+# call by reference
+
+def add_more(list):
+    list.append(50)
+    print("Inside Function", list)
+
+# Driver's code
+mylist = [10,20,30,40]
+
+add_more(mylist)
+print("Outside Function:", mylist)
+
+--------------------------------------------------------------------------------------
+
+Args, Kwargs
+
+def myFun(*argv):
+    for arg in argv:
+        print(arg)
+
+myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
+
+def myFun(arg1, **kwargs):
+    for key, value in kwargs.items():
+        print("%s == %s" % (key, value))
+# Driver code
+myFun("Hi", first='Geeks', mid='for', last='Geeks')
+
+def myFun(*args, **kwargs):
+    print("args: ", args)
+    print("kwargs: ", kwargs)
+# Now we can use both *args ,**kwargs
+# to pass arguments to this function :
+myFun('geeks', 'for', 'geeks', first="Geeks", mid="for", last="Geeks")                                        Output:
+args: ('geeks', 'for', 'geeks')
+kwargs {'first': 'Geeks', 'mid': 'for', 'last': 'Geeks'}
+--------------------------------------------------------------------------------------
+
+
+#in js spread operator is
+const oldArray = [1, 2, 3]
+const newArray = [...oldArray, 4, 5]
+# in python spread operator
+old_list = [1, 2, 3]
+new_list = [*old_list, 4, 5]
+
+new_list
+
+# Expected result
+# [1, 2, 3, 4, 5]
+
+--------------------------------------------------------------------------------------
+
+Dictionary, List iterations
+
+a_dict = {'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
+for key,value in a_dict.items():
+    print(key, value)
+
+prices = {'apple': 0.40, 'orange': 0.35, 'banana': 0.25}
+>>> for key in list(prices.keys()):  # Use a list instead of a view
+...     if key == 'orange':
+...         del prices[key]  # Delete a key from prices
+...
+>>> prices
+{'apple': 0.4, 'banana': 0.25}
+
+>>> a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+>>> new_dict = {}
+>>> for key, value in a_dict.items():
+...     new_dict[value] = key
+...
+>>> new_dict
+{1: 'one', 2: 'two', 3: 'thee', 4: 'four'}
+
+dict1 = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+# Double each value in the dictionary
+double_dict1 = {k:v*2 for (k,v) in dict1.items()}
+print(double_dict1)
+
+--------------------------------------------------------------------------------------
+
+Zip functions
+
+coordinate = ['x', 'y', 'z']
+value = [3, 4, 5]
+
+result = zip(coordinate, value)
+result_list = list(result)
+
+[('x', 3), ('y', 4), ('z', 5)]
+
+--------------------------------------------------------------------------------------
+
+Classes
+
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Instance method
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+class Dog:
+    species = "Canis familiaris"
+
+    def _init_(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Instance method
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+class Person(Dog):
+    def _init_(self, name, age, country):
+        super()._init_(name, age)
+        self.country = country
+p = Person("Canine", 36, "Armenia")
+print(f"{p.description()} and is from {p.country}")
+
+class Dog:
+
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []    # creates a new empty list for each dog
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+>>> d = Dog('Fido')
+>>> e = Dog('Buddy')
+>>> d.add_trick('roll over')
+>>> e.add_trick('play dead')
+>>> d.tricks
+['roll over']
+>>> e.tricks
+['play dead']
+
+--------------------------------------------------------------------------------------
+
+##############Decorators###############
+########Decorators wrap a function, modifying its behavior.
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_whee():
+    print("Whee!")
+
+####say_whee = my_decorator(say_whee)####
+def lowercase_decorator(function):
+   def wrapper():
+       func = function()
+       string_lowercase = func.lower()
+       return string_lowercase
+   return wrapper
+# decorator function to split words
+def splitter_decorator(function):
+   def wrapper():
+       func = function()
+       string_split = func.split()
+       return string_split
+   return wrapper
+@splitter_decorator # this is executed next
+@lowercase_decorator # this is executed first
+def hello():
+   return 'Hello World'
+hello()   # output => [ 'hello' , 'world' ]
