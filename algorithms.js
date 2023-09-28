@@ -23,7 +23,7 @@
 //     memo[key] = fib(n-1, memo) + fib(n-2, memo)
 //     return (fib(n-1, memo) + fib(n-2, memo))
 // }
-///////////////////////////////Bubble Sort////////////////////////////////////////
+///////////////////////////////Bubble Sort//////////////////////////////////////// 
 // console.log(fib(25));
 // const bubbleSort = (arr, n) => {
 //     var i, j, temp;
@@ -35,14 +35,14 @@
 //                 temp = arr[j];
 //                 arr[j] = arr[j+1];
 //                 arr[j+1] = temp;
-//                 swapped = true;
-//             }
+//                 swapped = true; 
+//             } 
 //         }Find the largest three elements in an array
 //         if(swapped == false){
-//             break;
-//         }
-//     }
-// }
+//             break; 
+//         } 
+//     } 
+// } 
 // var arr = [65,41,27,77,82,12] 
 // var n = arr.length;
 // bubbleSort(arr, n);
@@ -107,10 +107,62 @@
 // const numbers = [50,52,53,56,68,58,52];
 // console.log( repeatingArray(numbers));
 ////////////////////////////////// Split string /////////////////////////////////////
-const abbrevName = (str) => {
-    var split_names = str.trim().split(" ");
-    return (split_names[0] + " " + split_names[1].charAt(0) + ".")
+// const abbrevName = (str) => {
+//     var split_names = str.trim().split(" ");
+//     return (split_names[0] + " " + split_names[1].charAt(0) + ".")
+// }
+
+// console.log(abbrevName('Robin Singh'))
+////////////////////////////////// Capitalize first letter of string /////////////////////////////////////
+// const capitalize = (str) => {
+//    // return str.charAt(0).toUpperCase() + str.slice(1);
+//    return str.charAt(0).toUpperCase() + str.substr(1);
+// }
+// console.log(capitalize('js string exercise'));
+////////////////////////////////// Check if a string is a palindrome /////////////////////////////////////
+// const checkPalindrome = (string) => {
+//     var re = /[^A-Za-z0-9]/g; 
+//     string = string.toLowerCase().replace(re, '');
+//     for(let i = 0; i < string.length/2; i++){
+//         if(string[i] !== string[string.length-1-i]){
+//             return ('It is not a Polindrome');
+//         } 
+//     }
+//     return ('It is a Polindrome')
+
+// }
+
+// const string = prompt('Enter a string');
+// const value = checkPalindrome(string);
+// console.log(value);
+// // a man a plan a canal panama
+
+////////////////////////////////// Truncate a string to a number of words /////////////////////////////////////
+// const trancate = (str, no_words) => {
+//     return str.split(" ").slice(0, no_words).join(" ")
+// }
+// const word = "Hello my name is john";
+// console.log(trancate(word, 3));
+
+////////////////////////////////// Search a word in a string /////////////////////////////////////
+
+const searchWord = (string, word) => {
+    var x = 0, y = 0;
+    for (i=0; i<string.length; i++){
+        if(string[i] == word[0]){
+            for (j=i; j<i+word.length; j++){
+                if(string[j] == word[j-i]){
+                    y++;
+                }
+                if(y==word.length){
+                    x++;
+                }
+            }
+            y=0;
+        }
+    }
+    return (x);
 }
 
-console.log(abbrevName('Robin Singh'))
-
+const string = "My name is John Smith name Name";
+console.log(searchWord(string, "name"));
