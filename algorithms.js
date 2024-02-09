@@ -146,23 +146,42 @@
 
 ////////////////////////////////// Search a word in a string /////////////////////////////////////
 
-const searchWord = (string, word) => {
-    var x = 0, y = 0;
-    for (i=0; i<string.length; i++){
-        if(string[i] == word[0]){
-            for (j=i; j<i+word.length; j++){
-                if(string[j] == word[j-i]){
-                    y++;
-                }
-                if(y==word.length){
-                    x++;
-                }
-            }
-            y=0;
-        }
-    }
-    return (x);
-}
+// const searchWord = (string, word) => {
+//     var x = 0, y = 0;
+//     for (i=0; i<string.length; i++){
+//         if(string[i] == word[0]){
+//             for (j=i; j<i+word.length; j++){
+//                 if(string[j] == word[j-i]){
+//                     y++;
+//                 }
+//                 if(y==word.length){
+//                     x++;
+//                 }
+//             }
+//             y=0;
+//         }
+//     }
+//     return (x);
+// }
 
-const string = "My name is John Smith name Name";
-console.log(searchWord(string, "name"));
+// const string = "My name is John Smith name Name";
+// console.log(searchWord(string, "name"));
+
+
+// const howSum = (targetSum, numbers) => {
+//     if (targetSum === 0) return [];
+//     if (targetSum < 0) return null;
+//     for (let num of numbers) {
+//         const reminder = targetSum - num;
+//         const reminderResult = howSum(reminder, numbers);
+//         if(reminderResult !== null) {
+//             return [...reminderResult, num]
+//         }
+//     }
+//     return null;
+// }
+
+// console.log(howSum(7, [3,4,7,2,5]))
+
+
+

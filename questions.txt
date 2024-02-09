@@ -1,3 +1,18 @@
+List, tuple, set, dictionary.
+Data types and variables.
+Searching.
+Sorting.
+Recursion.
+QUEUE
+LISTS
+ARRAYS
+Classes
+Methods
+Decorators.
+SQL
+NoSQL
+
+
 In the event that you pass arguments like whole numbers, strings or tuples to a function, 
 the passing is like call-by-value because you can not change the value of the immutable objects being passed to the function. 
 Whereas passing mutable objects can be considered as call by reference because when their values are changed inside the function, 
