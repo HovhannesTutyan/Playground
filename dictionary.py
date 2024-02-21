@@ -19,7 +19,7 @@
 # print(python_dict.keys())
 # print(python_dict.values())
 # print(python_dict.items())
-
+# dict_variable = {key:value for (key,value) in dictonary.items()}
 
 ###################################### Задача 1: Скрабл ######################################
 
@@ -207,11 +207,21 @@
 #     result[i] = result.get(i, 0) + 1
 
 # ######################################  Задача 10: Анаграммы  ########################################
-def a(word):
-    result = {}
-    for i in word.lower():
-        if i.isalpha():
-            result[i] = result.get(i, 0) + 1
-        return result
-print("YES" if a(input()) == a(input()) else "NO")
-a('hello world')
+# def a(word):
+#     result = {}
+#     for i in word.lower():
+#         if i.isalpha():
+#             result[i] = result.get(i, 0) + 1
+#         return result
+# print("YES" if a(input()) == a(input()) else "NO")
+# a('hello world')
+
+# ######################################  Задача 10: лямбда-функциям  ########################################
+fahrenheit = {'t1': -30, 't2': -20, 't3': -10, 't4': 0}
+
+# celsius = list(map(lambda x: (float(5)/9) * (x-32), fahrenheit.values()))
+# celsius_dict = dict(zip(fahrenheit.keys(), celsius))
+# print(celsius_dict)
+
+# celsuis = {k:(float(5)/9)* (v-32) for (k,v) in fahrenheit.items()}
+# print(celsuis)
