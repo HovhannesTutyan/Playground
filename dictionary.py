@@ -20,6 +20,7 @@
 # print(python_dict.values())
 # print(python_dict.items())
 # dict_variable = {key:value for (key,value) in dictonary.items()}
+# dict_variable_mod = {key: sum(value) / len(value) for (key, value) in dictionary.items()}
 
 ###################################### Задача 1: Скрабл ######################################
 
@@ -218,6 +219,9 @@
 
 # ######################################  Задача 10: лямбда-функциям  ########################################
 fahrenheit = {'t1': -30, 't2': -20, 't3': -10, 't4': 0}
+total = 10
+counter = 2
+average = total / counter
 
 # celsius = list(map(lambda x: (float(5)/9) * (x-32), fahrenheit.values()))
 # celsius_dict = dict(zip(fahrenheit.keys(), celsius))
@@ -225,3 +229,4 @@ fahrenheit = {'t1': -30, 't2': -20, 't3': -10, 't4': 0}
 
 # celsuis = {k:(float(5)/9)* (v-32) for (k,v) in fahrenheit.items()}
 # print(celsuis)
+print('this is', average)
