@@ -1,6 +1,8 @@
-<<<<<<< HEAD
-from time1 import Account, Time
+from pathlib import Path
 from decimal import Decimal
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+from cardImages import Account, Time, DeckOfCards
 
 account1 = Account('John Snow', Decimal('50.00'))
 account1.balance = Decimal('-1000.00')
@@ -8,12 +10,7 @@ account1.balance = Decimal('-1000.00')
 t1 = Time(23,45,55)
 t1.set_time(13,55,55)
 print(t1)
-=======
-from decimal import Decimal
-from pathlib import Path
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-from time1 import Account, Time, DeckOfCards
+
 
 a1 = Account("John", 3000)
 a1.balance = Decimal("-200") # can set negative balance, valueError only for Account init.
@@ -34,8 +31,8 @@ for axes in axes_list.ravel():
     image_name = deck_of_cards.deal_card().image_name
     print(image_name)
     img = mpimg.imread(str(path.joinpath(image_name).resolve()))
+    print(img)
     axes.imshow(img)
 
 
 plt.show()
->>>>>>> 64e17d3f11debb8870b401be21810b467f9c68db

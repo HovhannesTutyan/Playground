@@ -1,18 +1,4 @@
 from decimal import Decimal
-<<<<<<< HEAD
-
-class Account:
-    def __init__(self, name, balance):
-        if (balance < Decimal('0.00')):
-            raise ValueError('Initial balance can not be negative')
-        self.name    = name
-        self.balance = balance
-    
-    def deposit(self, amount):
-        if (amount < Decimal('0.00')):
-            raise ValueError("Amount can not be negative")
-=======
-import random
 
 class Account:
     def __init__(self, name, balance):
@@ -24,7 +10,6 @@ class Account:
     def deposit(self, amount):
         if (amount < Decimal("0.00")):
             raise ValueError(f'Amount {amount} can not be negative')
->>>>>>> 64e17d3f11debb8870b401be21810b467f9c68db
         self.balance += amount
     
 class Time:
@@ -35,7 +20,6 @@ class Time:
     
     @property
     def hour(self):
-<<<<<<< HEAD
         return self._hour
     @hour.setter
     def hour(self, hour):
@@ -72,41 +56,8 @@ class Time:
     
     def __str__(self):
         return (('12' if self.hour in (0,12) else str(self.hour % 12)) + f':{self.minute:0>2}:{self.second:0>2}' + ('AM' if self.hour < 12 else 'PM'))
-=======
         return self.__hour
-    @hour.setter
-    def hour(self, hour):
-        if not (0 <= hour < 24):
-            raise ValueError(f'Hour {hour} must be 0-23')
-        self.__hour = hour
-    
-    @property
-    def minute(self):
-        return self.__minute
-    @minute.setter
-    def minute(self, minute):
-        if not (0 <= minute < 60):
-            raise ValueError(f'The {minute} minute must be 0-59')
-        self.__minute = minute
-
-    @property
-    def second(self):
-        return self.__second
-    @second.setter
-    def second(self, second):
-        if not (0 <= second < 60):
-            raise ValueError(f'The {second} minute must be 0-59')
-        self.__second = second
-    
-    def set_time(self, hour=0, minute=0, second=0):
-        self.hour   = hour
-        self.minute = minute
-        self.second = second
-    
-    def __repr__(self) -> str:
-        return (f'Time (hour={self.hour}, minute={self.minute}, second={self.second})')
-    def __str__(self) -> str:
-        return ('12' if self.hour in (0,12) else str(self.hour % 12) + f':{self.minute:0>2}:{self.second:0>2}' + ("AM" if self.hour < 12 else "PM"))
+        
 
 class Card:
     FACES = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
@@ -161,4 +112,4 @@ class DeckOfCards:
             if (index + 1) % 4 == 0:
                 s += '\n'
         return s
->>>>>>> 64e17d3f11debb8870b401be21810b467f9c68db
+
