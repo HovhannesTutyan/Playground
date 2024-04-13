@@ -57,8 +57,8 @@ class Time:
         return ('12' if self.hour in (0,12) else str(self.hour % 12) + f':{self.minute:0>2}:{self.second:0>2}' + ("AM" if self.hour < 12 else "PM"))
 
 class Card:
-    FACES = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
-    SUITS = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+    FACES = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king']
+    SUITS = ['hearts', 'diamonds', 'spades', 'clubs']
     def __init__(self, face, suit) -> None:
         self._face = face
         self._suit = suit
@@ -71,7 +71,7 @@ class Card:
         return self._suit
     @property
     def image_name(self):
-        return str(self).replace('', '-') + '.png'
+        return str(self).replace(' ', '_') + '.png'
 
     def __repr__(self) -> str:
         return (f'Card(face = {self.face}, suit = {self.suit})')
